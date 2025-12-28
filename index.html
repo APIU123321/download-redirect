@@ -1,0 +1,31 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>下载重定向</title>
+    <script>
+        // 文件映射配置
+        const fileMap = {
+            'video': 'https://真实地址1.com/video.mp4',
+            'software': 'https://真实地址2.com/software.zip'
+        };
+        
+        // 获取URL参数
+        const params = new URLSearchParams(window.location.search);
+        const file = params.get('file');
+        
+        // 如果有匹配的文件，立即重定向
+        if (file && fileMap[file]) {
+            window.location.replace(fileMap[file]);
+        }
+    </script>
+</head>
+<body>
+    <h2>下载链接</h2>
+    <ul>
+        <li><a href="?file=video">视频文件</a></li>
+        <li><a href="?file=software">软件下载</a></li>
+    </ul>
+    <p>或直接访问：https://你的用户名.github.io/download-redirect/?file=video</p>
+</body>
+</html>
